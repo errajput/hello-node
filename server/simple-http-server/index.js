@@ -32,7 +32,7 @@ http
     // - headers
     // - body(data)
 
-    response.end("Hello Browser");
+    response.end("Hello Browser web");
   })
   .listen(8080, () => {
     console.log("Listening on 8080");
