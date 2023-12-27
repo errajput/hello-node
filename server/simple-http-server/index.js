@@ -27,12 +27,22 @@ http
     } else if (request.url == "/contact") {
       response.end("Hello Browser web disha contact");
     } else if (request.url == "/userapi") {
-      fs.readFile(`${__dirname}/UserApi/userapi.json`, "utf-8", (err, data) => {
-        console.log(data);
-      });
-      response.end("Hello Browser web disha api");
+      // C:\Users\Pr\hello-node\server\simple-user-server\userapi.json
+      // C:\Users\Pr\hello-node\server\simple-http-server
+      console.log(__dirname);
+      console.log(__filename);
+      fs.readFile(
+        `${__dirname}/../simple-user-server/userapi.json`,
+        "utf-8",
+        (err, data) => {
+          console.log(data);
+          response.writeHead(200, { "content-type": "application/json" });
+          response.end(data);
+        }
+      );
+      // response.end("Hello Browser web disha api");
     } else {
-      //request.writeHead(404, { "content-type": "text / html" });
+      response.writeHead(404, { "content-type": "text / html" });
       response.end("<h1>error</h1>");
     }
     console.log("URL ", request.url);
