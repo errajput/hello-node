@@ -16,10 +16,25 @@
 
 // Server - Listens for the Client Requests
 const http = require("http");
-
+const fs = require("fs");
 // Higher Order Function
 http
   .createServer((request, response) => {
+    if (request.url == "/") {
+      response.end("Hello Browser web disha");
+    } else if (request.url == "/about") {
+      response.end("Hello Browser web disha about");
+    } else if (request.url == "/contact") {
+      response.end("Hello Browser web disha contact");
+    } else if (request.url == "/userapi") {
+      fs.readFile(`${__dirname}/UserApi/userapi.json`, "utf-8", (err, data) => {
+        console.log(data);
+      });
+      response.end("Hello Browser web disha api");
+    } else {
+      //request.writeHead(404, { "content-type": "text / html" });
+      response.end("<h1>error</h1>");
+    }
     console.log("URL ", request.url);
     console.log("Method ", request.method);
 
@@ -31,11 +46,9 @@ http
     // Response
     // - headers
     // - body(data)
-
-    response.end("Hello Browser web");
   })
-  .listen(8080, () => {
-    console.log("Listening on 8080");
+  .listen(8040, () => {
+    console.log("Listening on 8040 ");
   });
 
 // http://google.com/users/1001/comments/2023/delete
