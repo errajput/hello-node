@@ -1,8 +1,9 @@
 # hello-node
 
-core module
+--- core module ---
 
-- file-system
+file-system
+
 - syncronous
 - asyncronous
 
@@ -29,3 +30,5 @@ routing
 json
 
 simple Api
+
+events module
