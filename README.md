@@ -32,3 +32,5 @@ json
 simple Api
 
 events module
+
+stream module
